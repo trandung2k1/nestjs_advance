@@ -1,0 +1,10 @@
+GET http://localhost:3000/photos
+
+
+###
+POST http://localhost:3000/photos
+Content-Type: application/json
+
+{
+    "url": "https://as2.ftcdn.net/v2/jpg/02/64/15/41/1000_F_264154131_XvpBI5fARjB7Qlo4PMrMMTaunXha47NR.jpg"
+}
