@@ -18,6 +18,6 @@ export class Photo {
   url: string;
 
   @ManyToOne(() => User, (user) => user.photos)
-  @JoinColumn({ referencedColumnName: 'id', name: 'userId' })
-  userId: User;
+  @JoinColumn({ referencedColumnName: 'id', name: 'user' })
+  user: User;
 }

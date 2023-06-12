@@ -4,6 +4,7 @@ import {
   Column,
   OneToMany,
   Index,
+  JoinColumn,
 } from 'typeorm';
 import { Photo } from './Photo.entity';
 
@@ -16,6 +17,6 @@ export class User {
   @Column()
   name: string;
 
-  @OneToMany(() => Photo, (photo) => photo.userId)
+  @OneToMany(() => Photo, (photo) => photo.user)
   photos: Photo[];
 }
