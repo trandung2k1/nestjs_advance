@@ -1,11 +1,11 @@
-GET http://localhost:3000/photos
+GET http://localhost:4000/photos
 
 
 ###
-POST http://localhost:3000/photos
+POST http://localhost:4000/photos
 Content-Type: application/json
 
 {
     "url": "https://as2.ftcdn.net/v2/jpg/02/64/15/41/1000_F_264154131_XvpBI5fARjB7Qlo4PMrMMTaunXha47NR.jpg",
-    "userId": 1
+    "user": "9D3ADFBD-B70A-EE11-8DC2-2839268CD12C"
 }

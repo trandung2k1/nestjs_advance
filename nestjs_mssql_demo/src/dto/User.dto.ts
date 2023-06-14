@@ -1,10 +1,8 @@
+import { IsNotEmpty, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { Photo } from 'src/entities/Photo.entity';
-
 export class CreateUserDto {
   @ApiProperty({ type: String })
+  @IsNotEmpty()
+  @IsString()
   readonly name: string;
-
-  @ApiProperty({ type: [Photo] })
-  readonly photos: Photo[];
 }

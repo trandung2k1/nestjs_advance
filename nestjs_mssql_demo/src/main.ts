@@ -1,4 +1,4 @@
-import { INestApplication } from '@nestjs/common';
+import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { connectDB } from './config';
@@ -29,6 +29,11 @@ async function bootstrap() {
       include: [UsersModule],
     });
     SwaggerModule.setup('api/users', app, userDocument);
+    app.useGlobalPipes(
+      new ValidationPipe({
+        whitelist: true,
+      }),
+    );
     await app.listen(process.env.PORT);
   }, 3000);
 }

@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreatePhotoDto } from 'src/dto/Photo.dto';
 import { Photo } from 'src/entities/Photo.entity';
@@ -10,13 +10,26 @@ export class PhotosService {
     @InjectRepository(Photo) private photosRepository: Repository<Photo>,
   ) {}
   async getAllPhotos(): Promise<Photo[]> {
-    return await this.photosRepository.find({
-      relations: {
-        userId: true,
-      },
-    });
+    try {
+      return await this.photosRepository.find({
+        relations: {
+          user: true,
+        },
+      });
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new HttpException(
+          error.message,
+          HttpStatus.INTERNAL_SERVER_ERROR,
+        );
+      }
+    }
   }
   async createPhoto(createPhotoDto: CreatePhotoDto): Promise<Photo> {
-    return await this.photosRepository.save(createPhotoDto);
+    try {
+      return await this.photosRepository.save(createPhotoDto);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 }

@@ -1,19 +1,10 @@
-import {
-  Entity,
-  PrimaryGeneratedColumn,
-  Column,
-  OneToMany,
-  Index,
-  JoinColumn,
-} from 'typeorm';
+import { Entity, Column, OneToMany, Index } from 'typeorm';
 import { Photo } from './Photo.entity';
+import { BaseIdentityEntity } from './BaseIdentity.entity';
 
 @Index('PK_User', ['id'], { unique: true })
 @Entity('User', { schema: 'dbo' })
-export class User {
-  @PrimaryGeneratedColumn('increment', { type: 'int' })
-  id: number;
-
+export class User extends BaseIdentityEntity {
   @Column()
   name: string;
 
