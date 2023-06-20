@@ -17,6 +17,7 @@
     "@nestjs/config": "^2.3.2",
     "@nestjs/core": "^9.0.0",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/swagger": "^7.0.2",
     "@nestjs/typeorm": "^9.0.1",
     "mssql": "^9.1.1",
     "mysql": "^2.18.1",

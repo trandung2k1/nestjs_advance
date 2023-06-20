@@ -1,6 +1,9 @@
-import { User } from 'src/entities/User.entity';
+import { ApiProperty } from '@nestjs/swagger';
 
 export class CreatePhotoDto {
+  @ApiProperty({ type: String, required: true })
   readonly url: string;
-  readonly userId: User;
+
+  @ApiProperty({ type: Number, required: true })
+  readonly user: number;
 }

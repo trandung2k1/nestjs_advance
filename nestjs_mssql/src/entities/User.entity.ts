@@ -16,6 +16,6 @@ export class User {
   @Column()
   name: string;
 
-  @OneToMany(() => Photo, (photo) => photo.userId)
+  @OneToMany(() => Photo, (photo) => photo.user)
   photos: Photo[];
 }

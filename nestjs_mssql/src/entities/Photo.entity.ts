@@ -19,5 +19,5 @@ export class Photo {
 
   @ManyToOne(() => User, (user) => user.photos)
   @JoinColumn({ referencedColumnName: 'id', name: 'userId' })
-  userId: User;
+  user: User;
 }
