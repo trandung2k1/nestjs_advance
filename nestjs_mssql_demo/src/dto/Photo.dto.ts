@@ -21,8 +21,8 @@ export class CreatePhotoDto {
   @IsDate()
   readonly fromDate?: Date;
 
-  @ApiProperty({ type: User, required: true })
+  @ApiProperty({ type: String, required: true })
   @IsNotEmpty()
   @IsString()
-  readonly user: User;
+  readonly user: string;
 }
