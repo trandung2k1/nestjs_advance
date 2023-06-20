@@ -1,0 +1,14 @@
+POST http://localhost:3000/photo
+Content-Type: application/json
+
+{
+    "url": "https://static.vecteezy.com/system/resources/previews/004/218/321/non_2x/cute-cat-white-pet-cartoon-character-free-vector.jpg",
+    "user": "6491d1451df326dc6415edc8"
+}
+
+###
+GET  http://localhost:3000/photo
+
+
+###
+GET  http://localhost:3000/photo/6491c6d55509f22054bd4f4f

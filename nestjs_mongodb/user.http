@@ -1,0 +1,13 @@
+POST http://localhost:3000/user
+Content-Type: application/json
+
+{
+    "name": "Dung",
+    "age": 21
+}
+
+###
+GET http://localhost:3000/user
+
+###
+GET http://localhost:3000/user/6491d1451df326dc6415edc8
