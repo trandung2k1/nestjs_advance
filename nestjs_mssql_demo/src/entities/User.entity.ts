@@ -8,6 +8,9 @@ export class User extends BaseIdentityEntity {
   @Column()
   name: string;
 
+  @Column('datetime', { nullable: false, default: () => 'GETDATE()' })  
+  created: Date;
+  
   @OneToMany(() => Photo, (photo) => photo.user)
   photos: Photo[];
 }
