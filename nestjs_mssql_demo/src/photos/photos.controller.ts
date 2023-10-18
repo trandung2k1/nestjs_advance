@@ -15,4 +15,9 @@ export class PhotosController {
   async createPhoto(@Body() createPhotoDto: CreatePhotoDto) {
     return await this.photosService.createPhoto(createPhotoDto);
   }
+
+  @Post('pagination')
+  async pagination(@Body() model: { page: number; limit: number }) {
+    return this.photosService.pagination(model.page, model.limit);
+  }
 }

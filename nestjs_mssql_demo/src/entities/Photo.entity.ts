@@ -14,7 +14,7 @@ export class Photo extends BaseIdentityEntity {
   })
   fromDate?: Date;
 
-  @Column('datetime', { nullable: false, default: () => 'CURRENT_TIMESTAMP' })  
+  @Column('datetime', { nullable: false, default: () => 'CURRENT_TIMESTAMP' })
   created: Date;
 
   @ManyToOne(() => User, (user) => user.photos)

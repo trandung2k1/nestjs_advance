@@ -15,7 +15,7 @@ export class PhotosService {
     try {
       return await this.photosRepository.find({
         relations: {
-          user: true,
+          user: false,
         },
       });
     } catch (error) {
@@ -34,5 +34,18 @@ export class PhotosService {
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+  }
+  async pagination(pageNumber: number, pageSize: number) {
+    const take = pageSize || 10;
+    const page = pageNumber || 1;
+    const skip = (page - 1) * take;
+    const rs = await this.photosRepository
+      .createQueryBuilder('photo')
+      .leftJoinAndMapMany('photo.user', 'photo.user', 'user')
+      .skip(skip)
+      .take(take)
+      .getMany();
+    console.log(rs.length);
+    return rs;
   }
 }

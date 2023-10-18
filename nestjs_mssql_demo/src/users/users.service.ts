@@ -22,4 +22,16 @@ export class UsersService {
   async getUserById(id: string) {
     return await this.usersRepository.findOneBy({ id });
   }
+  async pagination(pageNumber: number, pageSize: number) {
+    const take = pageSize || 10;
+    const page = pageNumber || 1;
+    const skip = (page - 1) * take;
+    const rs = await this.usersRepository
+      .createQueryBuilder('user')
+      .leftJoinAndMapOne('user.photos', 'user.photos', 'photos')
+      .skip(skip)
+      .take(take)
+      .getOne();
+    return rs;
+  }
 }

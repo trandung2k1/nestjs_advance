@@ -14,4 +14,9 @@ export class UsersController {
   async createUser(@Body() createUserDto: CreateUserDto) {
     return await this.usersService.createUser(createUserDto);
   }
+
+  @Post('pagination')
+  async pagination(@Body() model: { page: number; limit: number }) {
+    return this.usersService.pagination(model.page, model.limit);
+  }
 }

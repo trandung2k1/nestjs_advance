@@ -1,8 +1,8 @@
-GET http://localhost:3000/photos
+GET http://localhost:4000/photos
 
 
 ###
-POST http://localhost:3000/photos
+POST http://localhost:4000/photos
 Content-Type: application/json
 
 {

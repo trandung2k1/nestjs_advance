@@ -14,8 +14,29 @@ async function bootstrap() {
       .build();
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('api', app, document);
-    await app.listen(process.env.PORT);
+    app.enableCors({
+      origin: ['http://localhost:8000'],
+      methods: ['GET', 'POST'],
+      credentials: true,
+    });
+    retryToStart(app, 10);
   }, 3000);
+}
+
+async function retryToStart(app: INestApplication, retryTime?: number) {
+  if (!retryTime) {
+    console.log('Không thể khởi chạy máy chủ');
+    return;
+  }
+  try {
+    await app.listen(process.env.PORT, () => {
+      console.log(`http://localhost:${process.env.PORT}`);
+    });
+  } catch (error) {
+    setTimeout(async () => {
+      await retryToStart(app, retryTime--);
+    }, 1000);
+  }
 }
 
 bootstrap();
