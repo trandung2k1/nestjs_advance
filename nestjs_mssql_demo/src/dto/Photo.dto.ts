@@ -1,12 +1,5 @@
-import {
-  IsDate,
-  IsDateString,
-  IsNotEmpty,
-  IsOptional,
-  IsString,
-} from 'class-validator';
+import { IsDate, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
-import { User } from 'src/entities/User.entity';
 import { Transform } from 'class-transformer';
 
 export class CreatePhotoDto {
