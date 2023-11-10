@@ -41,11 +41,7 @@ async function bootstrap() {
         whitelist: true,
       }),
     );
-    app.enableCors({
-      origin: ['http://127.0.0.1:5173'],
-      methods: ['GET', 'POST'],
-      credentials: true,
-    });
+    app.enableCors();
     await app.listen(process.env.PORT);
   }, 3000);
 }
