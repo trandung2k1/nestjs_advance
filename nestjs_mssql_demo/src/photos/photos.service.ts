@@ -13,11 +13,17 @@ export class PhotosService {
   ) {}
   async getAllPhotos(): Promise<Photo[]> {
     try {
-      return await this.photosRepository.find({
+      const start = Date.now();
+      const rs = await this.photosRepository.find({
         relations: {
           user: false,
         },
       });
+      // Execution of your TypeORM query
+      const end = Date.now();
+      const executionTime = end - start;
+      console.log(executionTime);
+      return rs;
     } catch (error) {
       if (error instanceof Error) {
         throw new HttpException(

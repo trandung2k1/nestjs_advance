@@ -20,6 +20,7 @@ import { PhotosModule } from './photos/photos.module';
       entities: [User, Photo],
       synchronize: true,
       autoLoadEntities: true,
+      logger: 'debug',
       extra: {
         trustServerCertificate: true,
       },
