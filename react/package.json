@@ -7,6 +7,7 @@
         "dev": "vite",
         "build": "tsc && vite build",
         "openapi": "openapi -i  http://localhost:4000/api-docs-json -o src/services/express_app",
+        "openapi2": "openapi -i  http://localhost:3000/api-json -o src/services/openapi",
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview"
     },
@@ -23,7 +24,6 @@
         "eslint": "^8.45.0",
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.3",
-        "openapi-typescript": "^6.7.0",
         "openapi-typescript-codegen": "^0.25.0",
         "typescript": "^5.0.2",
         "vite": "^4.4.5"
